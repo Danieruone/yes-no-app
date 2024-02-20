@@ -7,6 +7,17 @@ class MessageFieldBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text("Hello from box");
+    final inputBorder = UnderlineInputBorder(
+        borderSide: const BorderSide(color: Colors.transparent),
+        borderRadius: BorderRadius.circular(20));
+    final inputDecoration = InputDecoration(
+        enabledBorder: inputBorder,
+        focusedBorder: inputBorder,
+        filled: true,
+        suffixIcon: IconButton(
+          icon: const Icon(Icons.send),
+          onPressed: () {},
+        ));
+    return TextFormField(decoration: inputDecoration);
   }
 }
