@@ -39,6 +39,8 @@ class _ChatView extends StatelessWidget {
                   : const MyMessageBubble();
             },
           )),
+          // TODO: Add textfield for chat input
+          const Text("Hola mundo")
         ]),
       ),
     );
