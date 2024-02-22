@@ -23,7 +23,7 @@ class OtherMessageBubble extends StatelessWidget {
           ),
         ),
         const SizedBox(
-          height: 10,
+          height: 5,
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),

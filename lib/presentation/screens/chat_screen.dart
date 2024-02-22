@@ -19,7 +19,7 @@ class ChatScreen extends StatelessWidget {
               backgroundImage: NetworkImage(
                   "https://static.wikia.nocookie.net/sobre/images/6/63/Gasai_Yuno.png/revision/latest?cb=20140916002223&path-prefix=es")),
         ),
-        title: const Text("Mi amor 🥰"),
+        title: const Text("Yuno"),
         centerTitle: false,
       ),
       body: _ChatView(),
@@ -37,6 +37,7 @@ class _ChatView extends StatelessWidget {
         child: Column(children: [
           Expanded(
               child: ListView.builder(
+            controller: chatProvider.chatScrollController,
             itemCount: chatProvider.messageList.length,
             itemBuilder: (context, index) {
               final Message message = chatProvider.messageList[index];
@@ -50,7 +51,7 @@ class _ChatView extends StatelessWidget {
                     );
             },
           )),
-          const MessageFieldBox()
+          MessageFieldBox(onValue: (value) => chatProvider.sendMessage(value))
         ]),
       ),
     );
