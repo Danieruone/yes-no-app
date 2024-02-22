@@ -1,3 +1,5 @@
 # yes_no_app
 
-A new Flutter project.
+Chat with your favorite bot! just ask him some questions and wait
+
+![AppImage](./public/app-screenshot.png)  
