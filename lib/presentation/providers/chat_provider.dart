@@ -4,11 +4,7 @@ import 'package:yes_no_app/domain/entities/message.dart';
 class ChatProvider extends ChangeNotifier {
   final ScrollController chatScrollController = ScrollController();
 
-  List<Message> messageList = [
-    Message(text: "Hola", fromWho: FromWho.me),
-    Message(text: "Cómo estás?", fromWho: FromWho.me),
-    Message(text: "Qué onda", fromWho: FromWho.other)
-  ];
+  List<Message> messageList = [];
 
   Future<void> sendMessage(String text) async {
     if (text.isEmpty) return;
@@ -22,7 +18,7 @@ class ChatProvider extends ChangeNotifier {
   Future<void> moveScrollToBottom() async {
     await Future.delayed(const Duration(microseconds: 200));
     chatScrollController.animateTo(
-        chatScrollController.position.maxScrollExtent + 50,
+        chatScrollController.position.maxScrollExtent,
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeOut);
   }
