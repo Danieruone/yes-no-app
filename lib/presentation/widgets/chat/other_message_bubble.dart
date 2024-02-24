@@ -3,7 +3,7 @@ import 'package:yes_no_app/domain/entities/message.dart';
 
 class OtherMessageBubble extends StatelessWidget {
   final Message message;
-  const OtherMessageBubble({super.key, required this.message});
+  const  OtherMessageBubble({super.key, required this.message});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class OtherMessageBubble extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-          child: _ImageBubble(),
+          child: _ImageBubble(message.imageUrl!),
         )
       ],
     );
@@ -35,6 +35,10 @@ class OtherMessageBubble extends StatelessWidget {
 }
 
 class _ImageBubble extends StatelessWidget {
+  final String imageUrl;
+
+  const _ImageBubble(this.imageUrl);
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -42,7 +46,7 @@ class _ImageBubble extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(20),
       child: Image.network(
-        "https://yesno.wtf/assets/yes/3-422e51268d64d78241720a7de52fe121.gif",
+        imageUrl,
         width: size.width * 0.7,
         height: 150,
         fit: BoxFit.cover,
