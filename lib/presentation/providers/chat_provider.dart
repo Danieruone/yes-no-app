@@ -20,6 +20,7 @@ class ChatProvider extends ChangeNotifier {
   }
 
   Future<void> otherReply() async {
+    // TODO: fix scroll to bottom in other message
     final otherMessage = await getYesNoAnswer.getAnswer();
     messageList.add(otherMessage);
     notifyListeners();
