@@ -20,7 +20,6 @@ class ChatProvider extends ChangeNotifier {
   }
 
   Future<void> otherReply() async {
-    // TODO: fix scroll to bottom in other message
     final otherMessage = await getYesNoAnswer.getAnswer();
     messageList.add(otherMessage);
     notifyListeners();
@@ -28,9 +27,12 @@ class ChatProvider extends ChangeNotifier {
   }
 
   Future<void> moveScrollToBottom() async {
+  await Future.delayed(const Duration(milliseconds: 100));
+
     chatScrollController.animateTo(
         chatScrollController.position.maxScrollExtent,
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeOut);
   }
 }
+
